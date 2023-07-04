@@ -44,6 +44,7 @@ public class ExhibitorInfo extends javax.swing.JFrame {
 
         jPanel2.setBackground(new java.awt.Color(255, 153, 153));
 
+        name.setBackground(new java.awt.Color(255, 255, 255));
         name.setText("Member's Name");
 
         jLabel2.setText("Status");
@@ -93,15 +94,11 @@ public class ExhibitorInfo extends javax.swing.JFrame {
                 .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(35, 35, 35)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jLabel4)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel3)
-                            .addComponent(jLabel2)
-                            .addComponent(name))
-                        .addContainerGap(317, Short.MAX_VALUE))))
+                    .addComponent(jLabel4)
+                    .addComponent(jLabel3)
+                    .addComponent(jLabel2)
+                    .addComponent(name))
+                .addContainerGap(317, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -122,6 +119,8 @@ public class ExhibitorInfo extends javax.swing.JFrame {
         );
 
         jTabbedPane1.setBackground(new java.awt.Color(255, 255, 255));
+
+        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
 
         jLabel5.setText("Booth Number");
 
@@ -157,6 +156,7 @@ public class ExhibitorInfo extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("Booth Management", jPanel3);
 
+        jPanel5.setBackground(new java.awt.Color(255, 255, 255));
         jPanel5.setPreferredSize(new java.awt.Dimension(100, 100));
 
         jButton4.setText("CLICK HERE FOR DETAILS");
@@ -201,6 +201,7 @@ public class ExhibitorInfo extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("Product Directory", jPanel4);
 
+        jButton1.setBackground(new java.awt.Color(255, 102, 102));
         jButton1.setText("Previous");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -208,6 +209,7 @@ public class ExhibitorInfo extends javax.swing.JFrame {
             }
         });
 
+        jButton2.setForeground(new java.awt.Color(255, 102, 102));
         jButton2.setText("Next");
 
         jLabel1.setBackground(new java.awt.Color(255, 153, 153));
