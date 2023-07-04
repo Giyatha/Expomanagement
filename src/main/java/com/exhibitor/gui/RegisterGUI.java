@@ -192,6 +192,7 @@ public class RegisterGUI extends javax.swing.JFrame {
             Statement s = db.myconn().createStatement();
             s.executeUpdate("INSERT INTO registertb(firstname,lastname,exhibitionname,username, email,password,statusplan) VALUES('"+firstname+"','"+lastname+"','"+exhibitionname+"','"+username+"','"+email+"','"+password+"','"+statusplan+"')");
             
+            
             JOptionPane.showMessageDialog(rootPane,"Account Created Successfully");
             
             Connection conn = null;
