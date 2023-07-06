@@ -5,6 +5,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.util.Date;
 import javax.swing.JOptionPane;
 
 
@@ -40,7 +41,7 @@ public class RegisterGUI extends javax.swing.JFrame {
         jComboBox1 = new javax.swing.JComboBox<>();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextArea = new javax.swing.JTextArea();
-        jButton1 = new javax.swing.JButton();
+        JButton1 = new javax.swing.JButton();
         pasword = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -74,10 +75,10 @@ public class RegisterGUI extends javax.swing.JFrame {
         jTextArea.setRows(5);
         jScrollPane1.setViewportView(jTextArea);
 
-        jButton1.setText("SUBMIT FORM");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        JButton1.setText("SUBMIT FORM");
+        JButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                JButton1ActionPerformed(evt);
             }
         });
 
@@ -95,7 +96,7 @@ public class RegisterGUI extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(29, 29, 29)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jButton1)
+                            .addComponent(JButton1)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(jLabel3)
@@ -156,7 +157,7 @@ public class RegisterGUI extends javax.swing.JFrame {
                         .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
-                .addComponent(jButton1)
+                .addComponent(JButton1)
                 .addGap(21, 21, 21))
         );
 
@@ -178,7 +179,9 @@ public class RegisterGUI extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void JButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JButton1ActionPerformed
+        
+       
         String firstname = fname.getText();
         String lastname = lname.getText();
         String exhibitionname = exhibitioname.getText();
@@ -187,25 +190,33 @@ public class RegisterGUI extends javax.swing.JFrame {
         String password =  new String(pasword.getPassword());
         String statusplan = jComboBox1.getSelectedItem().toString();
         
-        
+        Date today = new Date();
+        Date date =  new Date();
+        System.out.println(date);
+      //function to send register data into the database  
         try{
             Statement s = db.myconn().createStatement();
-            s.executeUpdate("INSERT INTO registertb(firstname,lastname,exhibitionname,username, email,password,statusplan) VALUES('"+firstname+"','"+lastname+"','"+exhibitionname+"','"+username+"','"+email+"','"+password+"','"+statusplan+"')");
-            
-            
+            s.executeUpdate("INSERT INTO registertb(firstname,lastname,exhibitionname,username, email,password,statusplan, date) VALUES('"+firstname+"','"+lastname+"','"+exhibitionname+"','"+username+"','"+email+"','"+password+"','"+statusplan+"','"+date+"')"); 
             JOptionPane.showMessageDialog(rootPane,"Account Created Successfully");
             
-            Connection conn = null;
-    ResultSet rs = null;
-    PreparedStatement ps = null;
+        
+    } catch (Exception e) {
+    System.out.println(e.getMessage());
+    }
+        
+        
+    //function to get status plan that is selected from database
     
-
+        Connection conn = null;
+            ResultSet rs = null;
+            PreparedStatement ps = null;
        try {
     String sql = "SELECT * FROM registertb WHERE statusplan=?";
     ps = conn.prepareStatement(sql);
     ps.setString(1, statusplan);
     rs = ps.executeQuery();
 
+    //if else conditional to make payment if plan has actually been selected
     if (rs.next()) {
         String resultString = rs.getString("statusplan"); // Replace "columnName" with the actual column name containing the string value
 
@@ -219,18 +230,15 @@ public class RegisterGUI extends javax.swing.JFrame {
         }
     } else {
         JOptionPane.showMessageDialog(rootPane, "Account  successful");
-    }
-} catch (Exception e) {
-    System.out.println(e.getMessage());
-}
 
-  
         }
-        catch(Exception e){
+       } catch(Exception e){
         }
        this.setVisible(true);
        
-    }//GEN-LAST:event_jButton1ActionPerformed
+       //end of inserting data to register table in database
+       
+    }//GEN-LAST:event_JButton1ActionPerformed
 
     private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
     String statusplan = jComboBox1.getSelectedItem().toString();
@@ -317,10 +325,10 @@ public class RegisterGUI extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton JButton1;
     private javax.swing.JTextField e_mail;
     private javax.swing.JTextField exhibitioname;
     private javax.swing.JTextField fname;
-    private javax.swing.JButton jButton1;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

@@ -60,6 +60,11 @@ public class Paymentinfo extends javax.swing.JFrame {
         jButton2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jButton2.setForeground(new java.awt.Color(255, 102, 102));
         jButton2.setText("CANCEL");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -140,7 +145,7 @@ public class Paymentinfo extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-          String businessname = busname.getText();
+        String businessname = busname.getText();
         String emailaddress = email.getText();
         String phonenumber= phone.getText();
         String cardnumber = cardno.getText();
@@ -154,13 +159,20 @@ public class Paymentinfo extends javax.swing.JFrame {
             
             
             JOptionPane.showMessageDialog(rootPane,"Payment made Successfully");
+            dispose();
+
+            this.setVisible(false);
             
-            
+            new RegisterGUI().setEnabled(true);
             } catch (Exception e) {
     System.out.println(e.getMessage());
-}
+    }
 
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+       this.setVisible(false);
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments

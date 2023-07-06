@@ -1,18 +1,13 @@
 
 package com.exhibitor.gui;
 
-
 public class RegisteredHomePage extends javax.swing.JFrame {
 
 
     public RegisteredHomePage() {
         initComponents();
            }
-        RegisteredHomePage(String username){
-        
-            jwelcome.setText("WELCOME BACK" + username);
-        
-    }
+       
 
 
     @SuppressWarnings("unchecked")
