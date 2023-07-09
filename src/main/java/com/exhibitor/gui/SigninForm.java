@@ -9,7 +9,6 @@ import javax.swing.JOptionPane;
 
 public class SigninForm extends javax.swing.JFrame {
     
-   
 
    
     public SigninForm() {
@@ -68,6 +67,11 @@ public class SigninForm extends javax.swing.JFrame {
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
+            }
+        });
+        jButton1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jButton1KeyPressed(evt);
             }
         });
 
@@ -159,7 +163,11 @@ public class SigninForm extends javax.swing.JFrame {
                 
                  JOptionPane.showMessageDialog(rootPane,"Logged in Successfully");
                  
-                  new RegisteredHomePage().setVisible(true);
+//                RegisteredHomePage rh = new RegisteredHomePage(username);
+                new RegisteredHomePage().setVisible(true);
+                dispose();
+                 
+                  
                   
             } else {
                 
@@ -179,6 +187,10 @@ public class SigninForm extends javax.swing.JFrame {
     private void user_nameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_user_nameActionPerformed
         String userrname = user_name.getText();
     }//GEN-LAST:event_user_nameActionPerformed
+
+    private void jButton1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jButton1KeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton1KeyPressed
 
     /**
      * @param args the command line arguments

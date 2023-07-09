@@ -198,7 +198,7 @@ public class RegisterGUI extends javax.swing.JFrame {
             Statement s = db.myconn().createStatement();
             s.executeUpdate("INSERT INTO registertb(firstname,lastname,exhibitionname,username, email,password,statusplan, date) VALUES('"+firstname+"','"+lastname+"','"+exhibitionname+"','"+username+"','"+email+"','"+password+"','"+statusplan+"','"+date+"')"); 
             JOptionPane.showMessageDialog(rootPane,"Account Created Successfully");
-            
+            dispose();
         
     } catch (Exception e) {
     System.out.println(e.getMessage());
@@ -230,6 +230,7 @@ public class RegisterGUI extends javax.swing.JFrame {
         }
     } else {
         JOptionPane.showMessageDialog(rootPane, "Account  successful");
+        dispose();
 
         }
        } catch(Exception e){
@@ -263,9 +264,11 @@ public class RegisterGUI extends javax.swing.JFrame {
                 new PlanPayment().setVisible(true);
             } else if (resultString.equals("Premium   $15.00")) {
                 new PlanPayment().setVisible(true);
+                dispose();
             }
         } else {
             JOptionPane.showMessageDialog(rootPane, "No matching plan found");
+            dispose();
         }
     } catch (Exception e) {
         System.out.println(e.getMessage());
